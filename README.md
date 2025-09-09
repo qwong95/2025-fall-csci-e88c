@@ -47,7 +47,7 @@ This project uses [SBT](https://www.scala-sbt.org/) (Scala Build Tool) for build
 ## Running in Codespaces
 This project is configured to run in GitHub Codespaces, providing a ready-to-use development environment. Click the "Open in Github Codespaces" button below to start the developer IDE in the cloud.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/esumitra/scala-spark-multimodule-devcontainer-clusterjob?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/esumitra/2025-fall-csci-e88c?quickstart=1)
 
 
 ## Running in DevContainer
