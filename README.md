@@ -19,9 +19,9 @@ This project uses [SBT](https://www.scala-sbt.org/) (Scala Build Tool) for build
 ## Getting Started
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/esumitra/scala-spark-multimodule-devcontainer-clusterjob.git
+   git clone https://github.com/esumitra/2025-fall-csci-e88c.git
 
-   cd scala-spark-multimodule-devcontainer-clusterjob
+   cd 2025-fall-csci-e88c
    ```
 2. **Build the project**:
    ```bash
