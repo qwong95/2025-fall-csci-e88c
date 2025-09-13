@@ -1,4 +1,4 @@
-package org.cscie88c.week2
+package org.cscie88c.core.week2
 
 // complete the definition of the Student case class and companion object
 final case class Student()
