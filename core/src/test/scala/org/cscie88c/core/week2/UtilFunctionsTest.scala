@@ -12,7 +12,7 @@ class UtilFunctionsTest extends StandardTest {
       // add more unit tests for maximum below
     }
 
-    // add unit tests for average below
+    // add unit tests for median below
     
   }
 }
