@@ -4,6 +4,6 @@ object UtilFunctions {
 
   // complete the functions below
   def maximum(a: Int, b: Int): Int = ???
-  def average(a: Int, b: Int): Double = ???
+  def median(dataset: List[Double]): Double = ???
 
 }
