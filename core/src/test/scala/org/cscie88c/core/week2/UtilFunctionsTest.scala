@@ -8,8 +8,12 @@ class UtilFunctionsTest extends StandardTest {
     "maximum" should {
       "return maximum of two ints when first integer is greater" in {
         UtilFunctions.maximum(2, 1) should be (2)
+        UtilFunctions.maximum(3, 2) should be (3)
+        UtilFunctions.maximum(4, 1) should be (4)
+        UtilFunctions.maximum(4, 4) should be (4)
       }
       // add more unit tests for maximum below
+      
     }
 
     // add unit tests for median below
