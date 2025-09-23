@@ -7,7 +7,12 @@ class UniversityEmployeeTest extends StandardTest {
   "UniversityEmployee" when {
     "instantiated" should {
       "have a name property" in {
-        true shouldBe true
+        val mike = new UniversityEmployee("Mike Stone", "mstone@harvard.edu")
+        mike.description.contains("Mike Stone") shouldBe true
+      }
+      "have an email property" in {
+        val jane = new UniversityEmployee("Jane Kim", "jkim@harvard.edu")
+        jane.description.contains("jkim@harvard.edu") shouldBe true
       }
     }
   }

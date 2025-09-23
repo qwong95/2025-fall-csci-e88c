@@ -17,6 +17,19 @@ class UtilFunctionsTest extends StandardTest {
     }
 
     // add unit tests for median below
+    "median" should {
+      "return the middle value of a sorted list if there are an odd number of values" in {
+        UtilFunctions.median(List(1, 5, 2, 3, 6)) should be (3)
+        UtilFunctions.median(List(4, 3, 6)) should be (4)
+        UtilFunctions.median(List(4, 4, 4, 4, 4)) should be (4)
+      }
+
+      "return the average of the 2 middle numbers in an even sorted list" in {
+        UtilFunctions.median(List(1, 4, 2, 3)) should be (2.5)
+        UtilFunctions.median(List(1, 4, 2, 4)) should be (3)
+        UtilFunctions.median(List(1, 4, 2, 7, 5, 6)) should be (4.5)
+      }
+    }
     
   }
 }
