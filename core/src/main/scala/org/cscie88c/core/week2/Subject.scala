@@ -1,7 +1,5 @@
 package org.cscie88c.core.week2
 
-//import cats.instances.boolean
-
 // complete the definition of the Subject case class and companion object
 final case class Subject(
   id: Int,
