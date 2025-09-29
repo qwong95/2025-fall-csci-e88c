@@ -4,7 +4,7 @@ object UtilFunctions {
   
   def mult2(x: Int, y: Int): Int = x * y
   
-  def pythTest(x: Int, y: Int, z: Int): Boolean = ???
+  def pythTest(x: Int, y: Int, z: Int): Boolean = x * x + y * y == z * z
 
   val pythTriplesUpto100: List[(Int, Int, Int)] = ???
 
