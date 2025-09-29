@@ -1,4 +1,4 @@
-package org.cscie88c.week3
+package org.cscie88c.core.week3
 
 object UtilFunctions {
   
@@ -6,6 +6,10 @@ object UtilFunctions {
   
   def pythTest(x: Int, y: Int, z: Int): Boolean = x * x + y * y == z * z
 
-  val pythTriplesUpto100: List[(Int, Int, Int)] = ???
-
+  def pythTriplesUpto100: List[(Int, Int, Int)] = (for {
+      x <- 1 to 100
+      y <- x to 100
+      z <- y to 100
+      if x * x + y * y == z * z
+    } yield (x, y, z)).toList
 }
