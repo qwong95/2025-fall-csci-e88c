@@ -2,20 +2,20 @@ package org.cscie88c.core.week2
 
 // complete the definition of the Student case class and companion object
 final case class Student(
-  id: Int,
-  firstName: String,
-  lastName: String,
-  email: String,
-  gender: String,
-  country: String
+    id: Int,
+    firstName: String,
+    lastName: String,
+    email: String,
+    gender: String,
+    country: String
 ) {
   def fullName: String = s"${firstName} ${lastName}"
 }
 
 object Student {
-  def apply (csvRow: String): Student = {
+  def apply(csvRow: String): Student = {
     val fields = csvRow.split(",")
-    Student (
+    Student(
       id = fields(0).toInt,
       firstName = fields(1),
       lastName = fields(2),
@@ -34,7 +34,7 @@ object Student {
   )
 
   val allStudents: List[Student] = st.map(Student(_))
-  
+
   def studentNamesByCountry(country: String): List[String] = {
     allStudents.filter(_.country.equals(country)).map(_.fullName)
   }
@@ -42,5 +42,5 @@ object Student {
   def studentTotalsByCountry(country: String): Int = {
     allStudents.filter(_.country.equals(country)).length
   }
-  
+
 }

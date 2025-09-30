@@ -22,26 +22,33 @@ class StudentTest extends StandardTest {
     }
 
     "getting all students" should {
-        "get all students in the provided table" in {
-            allStudents.length should be (5)
-        }
+      "get all students in the provided table" in {
+        allStudents.length should be(5)
+      }
     }
 
     "filtered by country" should {
-        "contain full names of students from that country" in {
-            val namesChina = Student.studentNamesByCountry("China")
-            namesChina should contain theSameElementsAs List("Emmy Conrart", "Jesse Chismon", "Jocelyn Blaxlande")
+      "contain full names of students from that country" in {
+        val namesChina = Student.studentNamesByCountry("China")
+        namesChina should contain theSameElementsAs List(
+          "Emmy Conrart",
+          "Jesse Chismon",
+          "Jocelyn Blaxlande"
+        )
 
-            val namesUS = Student.studentNamesByCountry("United States")
-            namesUS should contain theSameElementsAs List("Marin Blasoni", "Delmore Scriver")
-        }
-
-        "count the number of students from that country" in {
-            Student.studentTotalsByCountry("China") shouldBe 3
-            Student.studentTotalsByCountry("United States") shouldBe 2
-            Student.studentTotalsByCountry("Brazil") shouldBe 0
-        }
+        val namesUS = Student.studentNamesByCountry("United States")
+        namesUS should contain theSameElementsAs List(
+          "Marin Blasoni",
+          "Delmore Scriver"
+        )
       }
+
+      "count the number of students from that country" in {
+        Student.studentTotalsByCountry("China") shouldBe 3
+        Student.studentTotalsByCountry("United States") shouldBe 2
+        Student.studentTotalsByCountry("Brazil") shouldBe 0
+      }
+    }
   }
 
 }

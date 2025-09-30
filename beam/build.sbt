@@ -9,7 +9,7 @@ libraryDependencies ++= Seq(
   "org.apache.beam" % "beam-runners-direct-java" % beamVersion % Runtime,
   "org.apache.beam" % "beam-runners-google-cloud-dataflow-java" % beamVersion % Runtime,
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.1",
-  // "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.14.1"
+  "com.twitter" %% "algebird-core" % "0.13.10"
 )
 dependencyOverrides += "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.2"
 

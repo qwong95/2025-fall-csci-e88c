@@ -5,19 +5,19 @@ final case class Student(
     email: String,
     subject: String,
     score: Int
-  ) {
+) {
   def description: String =
     s"name: ${name}, email: ${email}, subject: ${subject}, score: ${score}"
 }
 
 object Student {
 
-  def validateEmail(student: Student): Boolean =  student.email.contains("@")
+  def validateEmail(student: Student): Boolean = student.email.contains("@")
 
   def averageScoreBySubject(
       subject: String,
       studentList: List[Student]
-    ): Double = {
+  ): Double = {
     val target = subject.trim.toLowerCase
     val scores = studentList.collect {
       case s if s.subject.trim.toLowerCase == target => s.score
@@ -28,7 +28,7 @@ object Student {
   def averageScoreByStudent(
       student: Student,
       studentList: List[Student]
-    ): Double = {
+  ): Double = {
     val key = student.email.trim.toLowerCase
     val scores = studentList.collect {
       case s if s.email.trim.toLowerCase == key => s.score

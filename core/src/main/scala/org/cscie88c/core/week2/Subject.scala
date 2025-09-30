@@ -2,15 +2,15 @@ package org.cscie88c.core.week2
 
 // complete the definition of the Subject case class and companion object
 final case class Subject(
-  id: Int,
-  name: String,
-  isSTEM: Boolean
+    id: Int,
+    name: String,
+    isSTEM: Boolean
 )
 
 object Subject {
-  def apply (csvRow: String): Subject = {
+  def apply(csvRow: String): Subject = {
     val fields = csvRow.split(",")
-    Subject (
+    Subject(
       id = fields(0).toInt,
       name = fields(1),
       isSTEM = fields(2).toBoolean
@@ -27,5 +27,5 @@ object Subject {
   val allSubjects: List[Subject] = sub.map(Subject(_))
 
   def stemSubjects: List[Subject] = allSubjects.filter(_.isSTEM)
-  
+
 }

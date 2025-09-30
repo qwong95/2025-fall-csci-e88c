@@ -3,16 +3,14 @@ package org.cscie88c.core.week2
 object UtilFunctions {
 
   // complete the functions below
-  def maximum(a: Int, b: Int): Int = 
+  def maximum(a: Int, b: Int): Int =
     if (a > b)
       a
     else
       b
-  
+
   def median(dataset: List[Double]): Double = {
-    if (dataset.isEmpty) {
-      
-    }
+    if (dataset.isEmpty) {}
     val sortedNumbers = dataset.sorted
     val size = sortedNumbers.size
 
