@@ -8,7 +8,7 @@ import com.spotify.scio._
 object BeamJob {
   def main(args: Array[String]): Unit = {
     val (sc: ScioContext, jobArgs: Args) = ContextAndArgs(args)
-    implicit val scImplicit: ScioContext = sc
+    //implicit val scImplicit: ScioContext = sc
     val inputFile =
       jobArgs.getOrElse("input-file", "../data/alice_in_wonderland.txt")
     val outputFile =
