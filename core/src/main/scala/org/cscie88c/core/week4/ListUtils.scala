@@ -11,6 +11,8 @@ object ListUtils {
   // complete the functions below
   def charCounts(sentence: String): Map[Char, Int] = sentence.filter(_ != ' ').groupBy(identity).view.mapValues(_.length).toMap
 
-  def topN(n: Int)(frequencies: Map[Char, Int]): Map[Char, Int] = frequencies.toList.sortBy{ t => (-t._2, t._1) }.take(n)
+  def topN(n: Int)(frequencies: Map[Char, Int]): Map[Char, Int] = frequencies.toList.sortBy{ case (ch, count) => (-count, ch) }
+      .take(n)
+      .toMap
 
 }

@@ -48,10 +48,16 @@ class ListUtilsTest extends StandardTest {
     }
 
     "calling top N" should {
-      "return the top N characters by frequency with tie-break on char" in {
-        val frequencies = Map('e' -> 1, 'l' -> 3, 'H' -> 1, 'w' -> 1, 'r' -> 1, 'o' -> 2, 'd' -> 1)
-        ListUtils.topN(2)(frequencies) shouldBe List(('l', 3), ('o', 2))
-        ListUtils.topN(4)(frequencies).take(2) shouldBe List(('l', 3), ('o', 2))
+      "return the top N characters as a Map" in {
+        val freqs = Map('e' -> 1, 'l' -> 3, 'H' -> 1, 'w' -> 1, 'r' -> 1, 'o' -> 2, 'd' -> 1)
+        val top2 = ListUtils.topN(2)(freqs)
+        top2 shouldBe Map('l' -> 3, 'o' -> 2)
+      }
+      
+      "handle N larger than the map size" in {
+        val freqs = Map('a' -> 2, 'b' -> 1)
+        val result = ListUtils.topN(10)(freqs)
+        result shouldBe freqs
       }
     }
   }
