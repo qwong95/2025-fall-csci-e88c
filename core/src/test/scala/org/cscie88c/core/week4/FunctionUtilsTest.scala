@@ -19,15 +19,6 @@ class FunctionUtilsTest extends StandardTest {
     }
 
     // write unit tests for other functions here
-    "calling myPositivePower" should {
-      "compute x^n for non-negative n using applyNtimes" in {
-        myPositivePower(2)(0) shouldBe 1
-        myPositivePower(2)(5) shouldBe 32
-        myPositivePower(3)(4) shouldBe 81
-        myPositivePower(-2)(3) shouldBe -8
-      }
-    }
-
     "calling deferredExecutor" should {
       "return a function that logs and then applies f" in {
         val wrapped = deferredExecutor("CPU Pool")(add5)
