@@ -1,6 +1,6 @@
 package org.cscie88c.core.week4
 
-import org.cscie88c.core.testutils.{StandardTest}
+import org.cscie88c.core.testutils.StandardTest
 import org.cscie88c.core.week4.FunctionUtils._
 
 class FunctionUtilsTest extends StandardTest {
