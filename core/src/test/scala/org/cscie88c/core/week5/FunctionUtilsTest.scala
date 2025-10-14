@@ -1,6 +1,6 @@
 package org.cscie88c.core.week5
 
-import org.cscie88c.core.testutils.{ StandardTest }
+import org.cscie88c.core.testutils.StandardTest
 import org.cscie88c.core.week5.FunctionUtils._
 import FunctionUtils.CustomerTransaction
 
