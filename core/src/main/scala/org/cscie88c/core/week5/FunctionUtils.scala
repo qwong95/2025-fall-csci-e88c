@@ -1,7 +1,6 @@
 package org.cscie88c.core.week5
 
-import scala.math.tan
-import scala.math.toRadians
+import scala.math.{tan,toRadians}
 
 object FunctionUtils {
 
