@@ -6,6 +6,9 @@ class KafkaProducerTest extends StandardTest {
   "KafkaClient" should {
     "send a message to the default topic" in {
       // add your unit tests for KafkaClient.send here
+      val out = KafkaClient.sendStatusEvent("ok")
+      out should include ("default-topic")
+      out should include ("ok")
     }
   }
 }
