@@ -5,28 +5,9 @@ import scala.util.{Try, Success, Failure}
 
 object OptionUtils {
   
-  def fileCharCount(fileName: String): Try[Long] = Try {
-    val src = Source.fromResource(fileName, getClass.getClassLoader)
-    try {
-      src.mkString.length.toLong
-    } finally {
-      src.close()
-    }
-  }
+  def fileCharCount(fileName: String): Try[Long] = ???
 
-  def charCountAsString(fileName: String): String = fileCharCount(fileName) match {
-    case Success(n) => s"number of characters: $n"
-    case Failure(_) => "error opening file"
-  }
+  def charCountAsString(fileName: String): String = ???
 
-  def lineStreamFromFile(fileName: String): Option[LazyList[String]] = {
-    Try {
-      val src = Source.fromResource(fileName, getClass.getClassLoader)
-      try {
-        LazyList.from(src.getLines().toVector)
-      } finally {
-        src.close()
-      }
-    }.toOption
-  }
+  def lineStreamFromFile(fileName: String): Option[LazyList[String]] = ???
 }
