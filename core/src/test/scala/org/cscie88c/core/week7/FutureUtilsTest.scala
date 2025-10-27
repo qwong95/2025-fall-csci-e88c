@@ -16,9 +16,19 @@ class FutureUtilsTest extends FuturesTest {
 
   "FutureFunctions" when {
     "calling creditScoreAPI" should {
+
       "return a credit score greater than 300" in {
         // add unit tests below
         fail("add unit tests")
+      }
+    }
+
+    "calling futureFactorial" should {
+      "return 24 for input 4" in {
+        val f = futureFactorial(4)
+        whenReady(f) { res =>
+          res shouldBe 24
+        }
       }
     }
   }
