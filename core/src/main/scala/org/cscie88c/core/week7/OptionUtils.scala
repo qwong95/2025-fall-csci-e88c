@@ -15,8 +15,8 @@ object OptionUtils {
   }
 
   def charCountAsString(fileName: String): String = fileCharCount(fileName) match {
-    case scala.util.Success(n) => s"number of characters: $n"
-    case scala.util.Failure(_) => "error opening file"
+    case Success(n) => s"number of characters: $n"
+    case Failure(_) => "error opening file"
   }
 
   def lineStreamFromFile(fileName: String): Option[LazyList[String]] = {
