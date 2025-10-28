@@ -1,9 +1,8 @@
 package org.cscie88c.core.week7
 
 import scala.concurrent.{Future}
-import scala.util.{Try, Success, Failure}
+import scala.util.{Failure, Success}
 import scala.concurrent.ExecutionContext.Implicits.global
-import java.util.concurrent.TimeoutException
 import scala.util.Random
 import scala.collection.parallel.CollectionConverters._
 
@@ -12,8 +11,9 @@ object FutureUtils {
   val rnd = new Random()
 
   def creditScoreAPI(applicantId: Int): Future[Int] = Future {
-    if (Random.nextInt(5) == 0) throw new TimeoutException("Simulated timeout")
-    300 + Random.nextInt(501)
+    if (rnd.nextInt(5) == 0)
+      throw new RuntimeException("Simulated timeout")
+    300 + rnd.nextInt(501)
   }
 
   def printCreditScore(applicantId: Int): Unit = {
@@ -46,14 +46,13 @@ object FutureUtils {
   }
 
   def asyncAverageCreditScore(idList: List[Int]): Future[Double] = {
-    val perId: List[Future[Option[Int]]] =
-      idList.map { id =>
-        retry(times = 5) { creditScoreAPI(id) }
-          .map(score => Some(score))
-          .recover { case _ => None }
-      }
+    val futures: List[Future[Option[Int]]] = idList.map { id =>
+      creditScoreAPI(id)
+        .map(score => Some(score))
+        .recover { case _ => None }
+    }
 
-    Future.sequence(perId).map { results =>
+    Future.sequence(futures).map { results =>
       val scores = results.flatten
       require(scores.nonEmpty, "No successful credit scores to average")
       scores.sum.toDouble / scores.size
@@ -69,8 +68,6 @@ object FutureUtils {
     require(n >= 0, "n must be non-negative")
     if (n <= 1) 1L
     else (2L to n).par.fold(1L)(slowMultiplication)
-    // Alternatively (requires non-empty range):
-    // (2L to n).par.reduce(slowMultiplication)
   }
 
   def sequentialFactorial(n: Long): Long = {
