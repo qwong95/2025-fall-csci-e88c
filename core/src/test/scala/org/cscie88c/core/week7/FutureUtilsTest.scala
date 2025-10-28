@@ -3,8 +3,7 @@ package org.cscie88c.core.week7
 import org.cscie88c.core.testutils.FuturesTest
 import org.cscie88c.core.week7.FutureUtils.{asyncAverageCreditScore, creditScoreAPI, futureFactorial, futurePermutations}
 
-import scala.concurrent.{Await, Future, TimeoutException}
-import scala.util.{Failure, Success}
+import scala.concurrent.Future
 
 class FutureUtilsTest extends FuturesTest {
 
@@ -21,7 +20,7 @@ class FutureUtilsTest extends FuturesTest {
     "calling creditScoreAPI" should {
 
       "return a credit score greater than 300" in {
-        FutureUtils.creditScoreAPI(301).map { score =>
+        creditScoreAPI(301).map { score =>
           score should (be >= 300 and be <= 800)
         }.recover {
           case _: Throwable => succeed
@@ -47,7 +46,7 @@ class FutureUtilsTest extends FuturesTest {
       "asyncAverageCreditScore" should {
         "return an average strictly between 300 and 800 (no retries)" in {
           val ids = (1 to 20).toList
-          FutureUtils.asyncAverageCreditScore(ids).map { avg =>
+          asyncAverageCreditScore(ids).map { avg =>
             avg should be > 300.0
             avg should be < 800.0
           }.recover {
