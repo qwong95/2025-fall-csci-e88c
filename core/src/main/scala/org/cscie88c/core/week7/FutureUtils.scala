@@ -67,13 +67,13 @@ object FutureUtils {
   def concurrentFactorial(n: Long): Long = {
     require(n >= 0, "n must be non-negative")
     if (n <= 1) 1L
-    else (2L to n).par.fold(1L)(slowMultiplication)
+    else (2L to n).par.reduce(slowMultiplication)
   }
 
   def sequentialFactorial(n: Long): Long = {
     require(n >= 0, "n must be non-negative")
     if (n <= 1) 1L
-    else (2L to n).foldLeft(1L) { (acc, k) => slowMultiplication(acc, k) }
+    else (2L to n).foldLeft(1L)(slowMultiplication)
   }
 
 }
