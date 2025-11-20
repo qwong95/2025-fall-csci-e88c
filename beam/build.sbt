@@ -9,13 +9,15 @@ libraryDependencies ++= Seq(
   "org.apache.beam" % "beam-runners-direct-java" % beamVersion % Runtime,
   "org.apache.beam" % "beam-runners-google-cloud-dataflow-java" % beamVersion % Runtime,
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.1",
-  "com.twitter" %% "algebird-core" % "0.13.10"
+  "com.twitter" %% "algebird-core" % "0.13.10",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
+  "ch.qos.logback" % "logback-classic" % "1.2.11" % Runtime
 )
 dependencyOverrides += "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.2"
 
 Compile / mainClass := Some("org.cscie88c.beam.BeamJob")
 
-assembly / mainClass := Some("org.cscie88c.beam.BeamJob")
+/*assembly / mainClass := Some("org.cscie88c.beam.BeamJob")
 assembly / assemblyJarName := "BeamJob.jar"
 assembly / test := {}
 assembly / assemblyMergeStrategy := {
@@ -28,4 +30,4 @@ assembly / assemblyMergeStrategy := {
 // see shading feature at https://github.com/sbt/sbt-assembly#shading
 assembly / assemblyShadeRules := Seq(
   ShadeRule.rename("shapeless.**" -> "shadeshapeless.@1").inAll
-)
+)*/

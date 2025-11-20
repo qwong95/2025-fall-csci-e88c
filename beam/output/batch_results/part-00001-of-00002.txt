@@ -1,0 +1,2 @@
+Average total amount: 18.412680710531127
+Sum total amount: 942232.1100000036
